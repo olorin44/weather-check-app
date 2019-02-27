@@ -5,15 +5,50 @@
 }
 
 .weather-container {
-  border: 2px solid #43f;
+  background-color: #0a3d62;
+  border: 5px solid #38ada9;
   border-radius: 5%;
+  color: #fff;
+  font-family: "Lato", sans-serif;
   margin: 50px auto;
   max-width: 300px;
   padding: 20px;
 }
 
 #data-name,
-.weather-container > h3 {
+.weather-container > h3,
+.data-icon {
   text-align: center;
+}
+
+#data-name {
+  font-weight: bold;
+}
+
+#city-name {
+  border-radius: 5%;
+  display: block;
+  margin: 10px auto;
+  max-width: 250px;
+  text-align: center;
+}
+
+#get-data {
+  background-color: #38ada9;
+  border-radius: 50%;
+  color: #fff;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  height: 50px;
+  margin: 15px auto;
+  width: 50px;
+}
+
+#get-data:hover {
+  background-color: #fff;
+  color: #38ada9;
+  cursor: pointer;
+  transition: 0.3s;
 }
 /*# sourceMappingURL=style.css.map */
