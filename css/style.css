@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.weather-container {
+  border: 2px solid #43f;
+  border-radius: 5%;
+  margin: 50px auto;
+  max-width: 300px;
+  padding: 20px;
+}
+
+#data-name,
+.weather-container > h3 {
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */

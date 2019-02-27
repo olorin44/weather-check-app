@@ -12,7 +12,6 @@
   const dataWind = document.getElementById("data-wind");
   const dataPress = document.getElementById("data-press");
   const dataHumi = document.getElementById("data-humi");
-  const dataContainer = document.getElementsByClassName("data-container");
 
   const findCityWeather = () => {
     const cityName = document.getElementById("city-name").value;
@@ -20,19 +19,14 @@
     fetch(urlData + cityName + "&APPID=" + apiKey)
       .then(resp => resp.json())
       .then(resp => {
-        console.log(resp);
         showWeather(resp);
       });
   };
 
   const showWeather = resp => {
-    // dataContainer.innerHTML = "";
-    // let jsonData = JSON.parse(resp);
-    // console.log("dupa");
     dataName.innerHTML = "city name: " + resp.name;
     dataIcon.src =
       "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
-    // dataIcon.src = resp.weather[0].icon;
     dataDesc.innerHTML = "short description: " + resp.weather[0].description;
     dataTemp.innerHTML = "temperature: " + resp.main.temp + " °C";
     dataWind.innerHTML = "wind speed: " + resp.wind.speed + " m/s";
