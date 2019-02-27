@@ -1,20 +1,43 @@
 "use strict";
 (function() {
+  const apiKey = "eeeb1c75b8f4906d80f9f61ff892648a";
   const urlData =
-    " http://api.openweathermap.org/data/2.5/weather?APPID=eeeb1c75b8f4906d80f9f61ff892648a&units=metric&q=";
-  const dataContainer = document.getElementById("data-container");
+    " http://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
   const getDataBtn = document.getElementById("get-data");
   const cityName = document.getElementById("city-name");
+  const dataName = document.getElementById("data-name");
+  const dataIcon = document.getElementById("data-icon");
+  const dataDesc = document.getElementById("data-desc");
+  const dataTemp = document.getElementById("data-temp");
+  const dataWind = document.getElementById("data-wind");
+  const dataPress = document.getElementById("data-press");
+  const dataHumi = document.getElementById("data-humi");
+  const dataContainer = document.getElementsByClassName("data-container");
 
   const findCityWeather = () => {
     const cityName = document.getElementById("city-name").value;
     if (!cityName.length) cityName = "Warsaw";
-    fetch(urlData + cityName)
+    fetch(urlData + cityName + "&APPID=" + apiKey)
       .then(resp => resp.json())
       .then(resp => {
         console.log(resp);
-      })
-      .then(showWeather);
+        showWeather(resp);
+      });
+  };
+
+  const showWeather = resp => {
+    // dataContainer.innerHTML = "";
+    // let jsonData = JSON.parse(resp);
+    // console.log("dupa");
+    dataName.innerHTML = "city name: " + resp.name;
+    dataIcon.src =
+      "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
+    // dataIcon.src = resp.weather[0].icon;
+    dataDesc.innerHTML = "short description: " + resp.weather[0].description;
+    dataTemp.innerHTML = "temperature: " + resp.main.temp + " °C";
+    dataWind.innerHTML = "wind speed: " + resp.wind.speed + " m/s";
+    dataPress.innerHTML = "pressure: " + resp.main.pressure + " hPa";
+    dataHumi.innerHTML = "humidity: " + resp.main.humidity + " %";
   };
 
   getDataBtn.addEventListener("click", findCityWeather);
@@ -24,34 +47,4 @@
       findCityWeather();
     }
   });
-
-  //   const showWeather = resp => {
-  //     dataContainer.innerHTML = "";
-  //     resp.forEach(item => {
-  //       let liElement = document.createElement("li");
-  //       liElement.innerHTML =
-  //         "city:" +
-  //         item.name +
-  //         "<br>" +
-  //         "coords:" +
-  //         item.coord +
-  //         "<br>" +
-  //         "dupa:" +
-  //         item.main +
-  //         "<br>" +
-  //         "wind:" +
-  //         item.wind +
-  //         "<br>" +
-  //         "description" +
-  //         item.weather;
-  //       dataContainer.appendChild(liElement);
-  //     });
-  //   };
-
-  const showWeather = resp => {
-    dataContainer.innerHTML = "";
-    let dupa = json.parse(resp);
-    dataContainer.innerHTML = dupa.main.humidity + "%";
-    // dataContainer.appendChild(dupa);
-  };
 })();

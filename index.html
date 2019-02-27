@@ -10,11 +10,19 @@
   <body>
     <div class="container">
       <input type="text" id="city-name" placeholder="enter city name" />
-      <button id="get-data">get data</button>
-      <h3>Weather:</h3>
-      <ul id="data-container">
-        <li></li>
-      </ul>
+      <button id="get-data">get weather data</button>
+      <h3>Weather for city:</h3>
+      <div class="data-container">
+        <div id="data-name"></div>
+        <div class="data-icon">
+          <img src="" alt="" id="data-icon" />
+        </div>
+        <div id="data-desc"></div>
+        <div id="data-temp"></div>
+        <div id="data-wind"></div>
+        <div id="data-press"></div>
+        <div id="data-humi"></div>
+      </div>
     </div>
     <script src="js/index.js"></script>
   </body>
