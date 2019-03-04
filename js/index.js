@@ -2,7 +2,7 @@
 (function() {
   const apiKey = "eeeb1c75b8f4906d80f9f61ff892648a";
   const urlData =
-    " http://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+    "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
   const getDataBtn = document.getElementById("get-data");
   const cityName = document.getElementById("city-name");
   const dataName = document.getElementById("data-name");
@@ -26,7 +26,7 @@
   const showWeather = resp => {
     dataName.innerHTML = "city name: " + resp.name;
     dataIcon.src =
-      "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
+      "https://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
     dataDesc.innerHTML = "short description: " + resp.weather[0].description;
     dataTemp.innerHTML = "temperature: " + resp.main.temp + " °C";
     dataWind.innerHTML = "wind speed: " + resp.wind.speed + " m/s";
