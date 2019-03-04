@@ -35,6 +35,7 @@
   };
 
   getDataBtn.addEventListener("click", findCityWeather);
+  getDataBtn.addEventListener("touchstart", findCityWeather);
   cityName.addEventListener("keyup", event => {
     event.preventDefault();
     if (event.keyCode === 13) {
